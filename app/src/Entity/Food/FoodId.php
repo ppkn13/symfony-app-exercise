@@ -4,10 +4,10 @@ namespace App\Entity\Food;
 
 final class FoodId
 {
-    public function __construct(private readonly string $id)
+    public function __construct(public readonly string $id)
     {}
 
-    public function getId(): string
+    public function __toString(): string
     {
         return $this->id;
     }
