@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <form action="/food" method="post">
+        <label for="name">name</label><input id="name" type="text" name="name">
+        <label for="unitWeight">unit weight</label><input id="unitWeight" type="text" name="unitWeight">
+        <label for="calorie">calorie</label><input id="calorie" type="text" name="calorie">
+        <label for="protein">protein</label><input id="protein" type="text" name="protein">
+        <label for="fat">fat</label><input id="fat" type="text" name="fat">
+        <label for="carbohydrate">carbohydrate</label><input id="carbohydrate" type="text" name="carbohydrate">
+        <input type="submit">
+    </form>
+{% endblock %}
