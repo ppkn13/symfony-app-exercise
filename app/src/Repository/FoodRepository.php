@@ -40,7 +40,7 @@ class FoodRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Food[] Returns an array of Food objects
+//     * @return food[] Returns an array of food objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class FoodRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Food
+//    public function findOneBySomeField($value): ?food
 //    {
 //        return $this->createQueryBuilder('f')
 //            ->andWhere('f.exampleField = :val')

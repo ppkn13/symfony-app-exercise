@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\UseCase\Food\Create\FoodCreateCommand;
 use App\UseCase\Food\FoodUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,6 +13,12 @@ class FoodController extends AbstractController
 {
     public function __construct(private readonly FoodUseCase $useCase)
     {
+    }
+
+    #[Route('/food', methods: 'GET')]
+    public function index(): Response
+    {
+        return $this->render('food/index.html.twig');
     }
 
     #[Route('/food', methods: 'POST')]
