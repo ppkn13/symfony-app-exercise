@@ -4,7 +4,7 @@ namespace App\UseCase\Food;
 
 use App\Entity\Food\Food;
 use App\Entity\Food\FoodId;
-use App\Repository\FoodRepository;
+use App\Entity\Food\IFoodRepository;
 use App\UseCase\Food\Create\FoodCreateCommand;
 use App\UseCase\Food\Get\FoodGetCommand;
 use App\UseCase\Food\Get\FoodGetResult;
@@ -12,7 +12,7 @@ use Symfony\Component\Uid\Ulid;
 
 class FoodUseCase
 {
-    public function __construct(private readonly FoodRepository $foodRepository)
+    public function __construct(private readonly IFoodRepository $foodRepository)
     {
     }
 

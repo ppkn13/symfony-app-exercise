@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Food\Food;
+use App\Entity\Food\IFoodRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -14,7 +15,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Food[]    findAll()
  * @method Food[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class FoodRepository extends ServiceEntityRepository
+class FoodRepository extends ServiceEntityRepository implements IFoodRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
