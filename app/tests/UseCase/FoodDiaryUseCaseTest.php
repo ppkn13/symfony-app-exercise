@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Tests;
+
+use App\Entity\Food\Food;
+use App\Entity\Food\FoodId;
+use App\Entity\FoodDiary\FoodDiary;
+use App\InMemoryRepository\InMemoryFoodDiaryRepository;
+use App\InMemoryRepository\InMemoryFoodRepository;
+use App\UseCase\FoodDiary\Create\FoodDiaryCreateCommand;
+use DateTimeImmutable;
+use App\UseCase\FoodDiary\FoodDiaryUseCase;
+use PHPUnit\Framework\TestCase;
+
+class FoodDiaryUseCaseTest extends TestCase
+{
+    public function test_addDiaryItem_FoodDiaryが未作成なら新規作成される()
+    {
+        // arrange
+        $foodRepository = new InMemoryFoodRepository();
+        $foodDiaryRepository = new InMemoryFoodDiaryRepository();
+        $food = new Food(
+            new FoodId('test'),
+            'food',
+            100,
+            200,
+            10,
+            20,
+            30
+        );
+        $foodRepository->save($food);
+        $subject = new FoodDiaryUseCase(
+            $foodDiaryRepository,
+            $foodRepository
+        );
+        $command = new FoodDiaryCreateCommand('2023/01/01', 'test', 10);
+
+        // act
+        $subject->addDiaryItem($command);
+
+        // assert
+        $actual = $foodDiaryRepository->find(new DateTimeImmutable('2023/01/01'));
+        $this->assertInstanceOf(FoodDiary::class, $actual);
+    }
+}
