@@ -7,7 +7,7 @@ use App\Entity\Food\FoodId;
 use App\Entity\FoodDiary\FoodDiary;
 use App\InMemoryRepository\InMemoryFoodDiaryRepository;
 use App\InMemoryRepository\InMemoryFoodRepository;
-use App\UseCase\FoodDiary\Create\FoodDiaryCreateCommand;
+use App\UseCase\FoodDiary\AddItem\FoodDiaryAddItemCommand;
 use DateTimeImmutable;
 use App\UseCase\FoodDiary\FoodDiaryUseCase;
 use PHPUnit\Framework\TestCase;
@@ -33,7 +33,7 @@ class FoodDiaryUseCaseTest extends TestCase
             $foodDiaryRepository,
             $foodRepository
         );
-        $command = new FoodDiaryCreateCommand('2023/01/01', 'test', 10);
+        $command = new FoodDiaryAddItemCommand('2023/01/01', 'test', 10);
 
         // act
         $subject->addDiaryItem($command);

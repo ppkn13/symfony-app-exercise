@@ -7,7 +7,7 @@ use App\Entity\Food\IFoodRepository;
 use App\Entity\FoodDiary\FoodDiary;
 use App\Entity\FoodDiary\FoodDiaryItem;
 use App\Entity\FoodDiary\IFoodDiaryRepository;
-use App\UseCase\FoodDiary\Create\FoodDiaryCreateCommand;
+use App\UseCase\FoodDiary\AddItem\FoodDiaryAddItemCommand;
 use DateTimeImmutable;
 
 class FoodDiaryUseCase
@@ -19,7 +19,7 @@ class FoodDiaryUseCase
     {
     }
 
-    public function addDiaryItem(FoodDiaryCreateCommand $command): void
+    public function addDiaryItem(FoodDiaryAddItemCommand $command): void
     {
         $date = new DateTimeImmutable($command->date);
         $foodDiary = $this->foodDiaryRepository->find($date);

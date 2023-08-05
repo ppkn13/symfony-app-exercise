@@ -1,8 +1,8 @@
 <?php
 
-namespace App\UseCase\FoodDiary\Create;
+namespace App\UseCase\FoodDiary\AddItem;
 
-class FoodDiaryCreateCommand
+class FoodDiaryAddItemCommand
 {
     public function __construct(
         public readonly string $date,
