@@ -24,3 +24,4 @@ services:
     # please note that last definitions always *replace* previous ones
 
     App\Entity\Food\IFoodRepository: '@App\Repository\FoodRepository'
+    App\Entity\FoodDiary\IFoodDiaryRepository: '@App\Repository\FoodDiaryRepository'
