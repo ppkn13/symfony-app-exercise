@@ -5,6 +5,7 @@ namespace App\UseCase\FoodDiary;
 use App\Entity\Food\FoodId;
 use App\Entity\Food\IFoodRepository;
 use App\Entity\FoodDiary\FoodDiary;
+use App\Entity\FoodDiary\Date;
 use App\Entity\FoodDiary\FoodDiaryItem;
 use App\Entity\FoodDiary\IFoodDiaryRepository;
 use App\UseCase\FoodDiary\AddItem\FoodDiaryAddItemCommand;
@@ -21,7 +22,7 @@ class FoodDiaryUseCase
 
     public function addDiaryItem(FoodDiaryAddItemCommand $command): void
     {
-        $date = new DateTimeImmutable($command->date);
+        $date = new Date(new DateTimeImmutable($command->date));
         $foodDiary = $this->foodDiaryRepository->find($date);
         if (is_null($foodDiary)) {
             $foodDiary = new FoodDiary($date, []);

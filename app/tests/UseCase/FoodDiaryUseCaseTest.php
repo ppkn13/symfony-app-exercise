@@ -4,6 +4,7 @@ namespace App\Tests;
 
 use App\Entity\Food\Food;
 use App\Entity\Food\FoodId;
+use App\Entity\FoodDiary\Date;
 use App\Entity\FoodDiary\FoodDiary;
 use App\InMemoryRepository\InMemoryFoodDiaryRepository;
 use App\InMemoryRepository\InMemoryFoodRepository;
@@ -39,7 +40,7 @@ class FoodDiaryUseCaseTest extends TestCase
         $subject->addDiaryItem($command);
 
         // assert
-        $actual = $foodDiaryRepository->find(new DateTimeImmutable('2023/01/01'));
+        $actual = $foodDiaryRepository->find(new Date(new DateTimeImmutable('2023/01/01')));
         $this->assertInstanceOf(FoodDiary::class, $actual);
     }
 }

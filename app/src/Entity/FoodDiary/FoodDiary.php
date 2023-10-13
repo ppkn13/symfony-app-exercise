@@ -2,7 +2,6 @@
 
 namespace App\Entity\FoodDiary;
 
-use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: FoodDiaryRepository::class)]
@@ -12,8 +11,8 @@ class FoodDiary
     public function __construct(
         #[ORM\Id]
         #[ORM\GeneratedValue(strategy: 'NONE')]
-        #[ORM\Column(type: 'date')]
-        public readonly DateTimeImmutable $date,
+        #[ORM\Column(type: 'food_diary_date')]
+        public readonly Date $date,
         /**
          * @var FoodDiaryItem[]
          */

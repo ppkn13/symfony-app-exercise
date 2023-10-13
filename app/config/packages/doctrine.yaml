@@ -7,6 +7,7 @@ doctrine:
         #server_version: '13'
         types:
             food_id: App\Types\FoodIdType
+            food_diary_date: App\Types\FoodDiaryDateType
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware

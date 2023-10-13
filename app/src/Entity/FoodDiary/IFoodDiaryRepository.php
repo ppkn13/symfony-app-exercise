@@ -4,7 +4,7 @@ namespace App\Entity\FoodDiary;
 
 interface IFoodDiaryRepository
 {
-    public function find(\DateTimeImmutable $date);
+    public function find(Date $date);
 
     public function save(FoodDiary $foodDiary): void;
 }
