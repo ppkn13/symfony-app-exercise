@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Food\Food;
 use App\Entity\FoodDiary\FoodDiary;
 use App\Entity\FoodDiary\IFoodDiaryRepository;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -22,4 +23,9 @@ class FoodDiaryRepository extends ServiceEntityRepository implements IFoodDiaryR
             $this->getEntityManager()->flush();
         }
     }
+
+    // public function find($id, $lockMode = null, $lockVersion = null): FoodDiary
+    // {
+    //     return parent::find($id, $lockMode = null, $lockVersion = null);
+    // }
 }

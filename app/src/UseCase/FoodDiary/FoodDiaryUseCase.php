@@ -9,6 +9,8 @@ use App\Entity\FoodDiary\Date;
 use App\Entity\FoodDiary\FoodDiaryItem;
 use App\Entity\FoodDiary\IFoodDiaryRepository;
 use App\UseCase\FoodDiary\AddItem\FoodDiaryAddItemCommand;
+use App\UseCase\FoodDiary\Get\FoodDiaryGetCommand;
+use App\UseCase\FoodDiary\Get\FoodDiaryGetResult;
 use DateTimeImmutable;
 
 class FoodDiaryUseCase
@@ -18,6 +20,14 @@ class FoodDiaryUseCase
         private IFoodRepository $foodRepository
     )
     {
+    }
+
+    public function get(FoodDiaryGetCommand $command): FoodDiaryGetResult
+    {
+        $date = new Date(new DateTimeImmutable($command->date));
+        $foodDiary = $this->foodDiaryRepository->find($date);
+        $result = (string)$foodDiary->date;
+        return new FoodDiaryGetResult($result);
     }
 
     public function addDiaryItem(FoodDiaryAddItemCommand $command): void
